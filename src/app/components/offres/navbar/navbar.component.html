@@ -1,0 +1,38 @@
+<br>
+<nav class="navbar navbar-expand-sm bg-light navbar-dark">
+
+   <ul class="navbar-nav ">
+        <li class="nav-item">
+            <button class="btn btn-sm btn-outline-info ml-2" (click)="onGetAllOffres()">Toutes les offres</button>
+        </li>
+        <li>
+            <button (click)="onNewOffres()" class="btn btn-sm btn-outline-info ml-2">Ajouter</button>
+        </li>
+    </ul> 
+    <ul class="navbar navbar-nav ml-auto">
+        <li>
+           
+            <ng-container *ngIf="userForm">
+                
+                <ng-container *ngIf="state as data">
+                    
+                    
+                        <form [formGroup]="userForm" (ngSubmit)="onSearch()" class="form-inline">
+               
+                            <input ngModel class="ml-2" name="nom"  type="text" placeholder="Nom de l'emloyé" formControlName="nomEmp" > 
+                            <input ngModel class="ml-2" name="v_depart"  type="text" placeholder="Ville de départ" formControlName="v_depart">
+                            <input ngModel class="ml-2" name="v_arrivee"  type="text" placeholder="Ville d'arrivé"formControlName="v_arrivee">
+                            <input ngModel class="ml-2" name="date"  type="text" placeholder="Date" formControlName="date">
+        
+                            <button class="btn btn-sm btn-outline-info ml-2" ><i class="fa fa-search"></i></button>
+                      
+                        </form>
+                    
+                </ng-container>
+            </ng-container>
+       
+               
+            
+        </li>
+    </ul>
+</nav>

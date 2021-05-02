@@ -1,0 +1,32 @@
+{
+  "offres": [
+    {
+      "id": 1,
+      "nomEmp": "Imly",
+      "v_depart": "Dely",
+      "v_arrivee": "Rouiba",
+      "date": "2019-05-30"
+    },
+    {
+      "id": 3,
+      "nomEmp": "Imad",
+      "v_depart": "Alger",
+      "v_arrivee": "El-achour",
+      "date": "1996-11-13"
+    },
+    {
+      "id": 4,
+      "nomEmp": "Lylia Nabi",
+      "v_depart": "Elachour",
+      "v_arrivee": "Rouiba",
+      "date": "1998-11-25"
+    },
+    {
+      "id": 5,
+      "nomEmp": "Lylia Nabi",
+      "v_depart": "Rouiba",
+      "v_arrivee": "Dely ibrahim",
+      "date": "2019-05-30"
+    }
+  ]
+}

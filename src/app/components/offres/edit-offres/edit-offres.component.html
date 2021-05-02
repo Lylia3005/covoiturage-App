@@ -1,0 +1,79 @@
+
+<div class="container" >
+    <ng-container *ngIf="userForm">
+        <ng-container *ngIf="state as data">
+         
+            <ng-container *ngIf="data.dataState==DataStateEnum.LOADING">
+                <div class="p-2">Loading...</div>
+            </ng-container>
+
+            <ng-container *ngIf="data.dataState==DataStateEnum.ERROR">
+                <div class="p-2">{{state.errorMessage}}</div>
+            </ng-container>
+    
+            <ng-container *ngIf="data.dataState==DataStateEnum.UPDATED" class="p-4">
+                <div class="alert-success container p-3 m-3">
+                    <span>L'offre a bien été modifiée</span>
+                    <button class="btn btn-success ml-3" (click)="okEdiOffre()">Voir les offres</button>
+                </div>
+            </ng-container>
+                
+            <ng-container *ngIf="data.dataState==DataStateEnum.LOADED">
+
+            <ng-container *ngIf="okForm">
+                <form [formGroup]="userForm" (ngSubmit)="onUpdateOffre()">
+                    <div class="text-center form-group" style="  border: 3px dashed; border-radius: 10px; border-color: rgb(25, 175, 180);">
+                        <label style="font-size: 30px; ">Identifiant de l'offre :</label>
+                        <label class="p-2  " style="font-size: 30px; "> {{userForm.controls.id.value}}</label>
+                        <input type="hidden" class="form-control " formControlName="id" >
+                    </div>
+
+ 
+                    <div class="form-group">
+                        <label>Nom de l'employé</label>
+                        <input type="text" class="form-control" formControlName="nomEmp" 
+                        [ngClass]="{'is-invalid':submitted && userForm.controls.nomEmp.errors}">
+                        <div *ngIf="submitted && userForm.controls.nomEmp.errors" class="invalid-feedback">
+                            <div *ngIf="userForm.controls.nomEmp.errors.required">Le nom de l'employé est obligatoire</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ville de départ</label>
+                        <input type="text" class="form-control" formControlName="v_depart"
+                        [ngClass]="{'is-invalid':submitted && userForm.controls.v_depart.errors}">
+                        <div *ngIf="submitted && userForm.controls.v_depart.errors" class="invalid-feedback">
+                            <div *ngIf="userForm.controls.v_depart.errors.required">La ville de départ est obligatoire</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ville d'arrivé</label>
+                        <input type="text" class="form-control" formControlName="v_arrivee"
+                        [ngClass]="{'is-invalid':submitted && userForm.controls.v_arrivee.errors}">
+                        <div *ngIf="submitted && userForm.controls.v_arrivee.errors" class="invalid-feedback">
+                            <div *ngIf="userForm.controls.v_arrivee.errors.required">La ville d'arrivée est obligatoire</div>
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        
+                        <input type="date" class="form-control" formControlName="date"
+                        [ngClass]="{'is-invalid':submitted && userForm.controls.date.errors}">
+                        <div *ngIf="submitted && userForm.controls.date.errors" class="invalid-feedback">
+                            <div *ngIf="userForm.controls.date.errors.required">La date de l'employé est obligatoire</div>
+                        </div>
+                        <button type="submit" class="btn btn-info ml-auto">Enregistrer</button>
+
+                    </div>
+                    
+                    
+                
+                </form>
+
+            </ng-container>
+                
+            </ng-container>
+        </ng-container>    
+    </ng-container>
+    
+    
+    
+</div>
